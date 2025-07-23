@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro';
+  src: url('/fonts/neue-haas-grotesk/NeueHaasDisplay-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro';
+  src: url('/fonts/neue-haas-grotesk/NeueHaasDisplay-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk Text Pro';
+  src: url('/fonts/neue-haas-grotesk/NeueHaasDisplay-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  src: url('/fonts/barlow-semi-condensed/BarlowSemiCondensed-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  src: url('/fonts/barlow-semi-condensed/BarlowSemiCondensed-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Barlow Semi Condensed';
+  src: url('/fonts/barlow-semi-condensed/BarlowSemiCondensed-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-barlow-semi-condensed: 'Barlow Semi Condensed', sans-serif;
+  --font-neue-haas-grotesk: 'Neue Haas Grotesk Text Pro', sans-serif;
+  --primary-normal: #ffc700;
+  --primary-accent: #c79b12;
+  --primary-subdued: #ffe8ab;
+  --secondary: #0b0b0b;
+  --neutral-accent-light: #d2d2d2;
+  --neutral-invert-normal: #ffffff;
+  --neutral-invert-accent: #1f1f1f;
+  --neutral-accent: #131415;
+  --neutral-normal: #1f2023;
+  --neutral-subdued: #383a42;
+  --red-normal: #ff0000;
+}
+
+@theme {
+  --font-barlow: var(--font-barlow-semi-condensed);
+  --font-neue: var(--font-neue-haas-grotesk);
+  --color-primary-normal: var(--primary-normal);
+  --color-primary-accent: var(--primary-accent);
+  --color-primary-subdued: var(--primary-subdued);
+  --color-secondary: var(--primary-subdued);
+  --color-neutral-accent-light: var(--neutral-accent-light);
+  --color-neutral-invert-normal: var(--neutral-invert-normal);
+  --color-neutral-invert-accent: var(--neutral-invert-accent);
+  --color-neutral-accent: var(--neutral-accent);
+  --color-neutral-normal: var(--neutral-normal);
+  --color-neutral-subdued: var(--neutral-subdued);
+  --animate-spin: spin 1s linear infinite;
+  --animate-spin: spin 1s linear infinite;
+  --animate-slide-down: slideDown 0.3s ease-out forwards;
+  --animate-slide-up: slideUp 0.3s ease-in forwards;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slideUp {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+}
+
+body {
+  background: var(--neutral-accent);
+  color: var(--neutral-normal);
+  font-family: var(--font-barlow-semi-condensed);
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
