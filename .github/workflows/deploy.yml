@@ -1,0 +1,68 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_IMAGE: ${{ secrets.DOCKER_IMAGE }}
+      CONTAINER_NAME: ${{ secrets.CONTAINER_NAME }}
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+      EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+      EC2_USER: ${{ secrets.EC2_USER }}
+
+    steps:
+      - name: 🧾 Checkout source
+        uses: actions/checkout@v3
+
+      - name: 🧱 Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: 🔐 Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ env.DOCKER_USERNAME }}
+          password: ${{ env.DOCKER_PASSWORD }}
+
+      - name: 🐳 Build and Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ env.DOCKER_IMAGE }}:latest
+          file: ./Dockerfile
+          platforms: linux/amd64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: ✏️ Generate .env file
+        run: |
+          echo "DOCKER_IMAGE=${{ env.DOCKER_IMAGE }}" > .env
+          echo "CONTAINER_NAME=${{ env.CONTAINER_NAME }}" >> .env
+
+      - name: 📦 Copy docker-compose.yml to EC2
+        uses: appleboy/scp-action@v1.0.0
+        with:
+          host: ${{ env.EC2_HOST }}
+          username: ${{ env.EC2_USER }}
+          key: ${{ env.EC2_SSH_KEY }}
+          source: 'docker-compose.yml, .env'
+          target: '~/docker-compose'
+
+      - name: 🚀 Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ env.EC2_HOST }}
+          username: ${{ env.EC2_USER }}
+          key: ${{ env.EC2_SSH_KEY }}
+          script: |
+            cd ~/docker-compose
+            sudo docker-compose pull
+            sudo docker-compose down
+            sudo docker-compose up -d --remove-orphans
