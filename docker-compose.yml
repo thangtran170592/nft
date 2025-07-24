@@ -4,5 +4,5 @@ services:
     image: ${DOCKER_IMAGE}:latest
     container_name: ${CONTAINER_NAME}
     ports:
-      - '81:3000'
+      - '80:3100'
     restart: always
