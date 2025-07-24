@@ -87,11 +87,11 @@ export default function Page() {
       </div>
       <JsonLd
         data={{
-          '@context': 'https://next-store-bice-kappa.vercel.app',
+          '@context': 'http://ec2-3-93-181-219.compute-1.amazonaws.com',
           '@type': 'BlogPosting',
-          headline: 'NFT là gì?',
+          headline: 'What is NFT?',
           image: 'https://nft.vn/nft-cover.jpg',
-          author: { '@type': 'Person', name: 'Thắng Trần' },
+          author: { '@type': 'Person', name: 'Ztech' },
           datePublished: '2025-05-19',
         }}
       />

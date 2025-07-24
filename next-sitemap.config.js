@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://your-domain.com',
+  siteUrl: 'http://ec2-3-93-181-219.compute-1.amazonaws.com',
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   sitemapSize: 5000,
