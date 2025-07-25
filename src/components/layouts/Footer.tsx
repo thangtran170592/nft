@@ -12,22 +12,22 @@ export default function Footer() {
                     <h3 className='font-black uppercase italic mb-3 text-lg text-neutral-invert-normal'>About Us</h3>
                     <ul className='flex flex-col gap-2 md:text-sm text-xs text-neutral-accent-light'>
                         <li>
-                            <Link href='/careers'>Careers</Link>
+                            <Link href='/'>Careers</Link>
                         </li>
                         <li>
-                            <Link href='/company-details'>Company Details</Link>
+                            <Link href='/'>Company Details</Link>
                         </li>
                         <li>
-                            <Link href='/terms'>Terms & Conditions</Link>
+                            <Link href='/'>Terms & Conditions</Link>
                         </li>
                         <li>
-                            <Link href='/help'>Help Center</Link>
+                            <Link href='/'>Help Center</Link>
                         </li>
                         <li>
-                            <Link href='/privacy'>Privacy Policy</Link>
+                            <Link href='/'>Privacy Policy</Link>
                         </li>
                         <li>
-                            <Link href='/affiliate'>Affiliate</Link>
+                            <Link href='/'>Affiliate</Link>
                         </li>
                     </ul>
                 </div>
@@ -37,22 +37,22 @@ export default function Footer() {
                     <h3 className='font-bold uppercase italic mb-3 text-lg text-neutral-invert-normal'>Products</h3>
                     <ul className='flex flex-col gap-2 md:text-sm text-xs text-neutral-accent-light'>
                         <li>
-                            <Link href='/marketplace'>NFT Marketplace</Link>
+                            <Link href='/'>NFT Marketplace</Link>
                         </li>
                         <li>
-                            <Link href='/slingshot'>Slingshot</Link>
+                            <Link href='/'>Slingshot</Link>
                         </li>
                         <li>
-                            <Link href='/swaps'>Swaps</Link>
+                            <Link href='/'>Swaps</Link>
                         </li>
                         <li>
-                            <Link href='/launchpad'>NFT Launchpad</Link>
+                            <Link href='/'>NFT Launchpad</Link>
                         </li>
                         <li>
-                            <Link href='/runes'>Runes Platform</Link>
+                            <Link href='/'>Runes Platform</Link>
                         </li>
                         <li>
-                            <Link href='/dashboard'>Creator Dashboard</Link>
+                            <Link href='/'>Creator Dashboard</Link>
                         </li>
                     </ul>
                 </div>
@@ -62,19 +62,19 @@ export default function Footer() {
                     <h3 className='font-bold uppercase italic mb-3 text-lg text-neutral-invert-normal'>Resources</h3>
                     <ul className='flex flex-col gap-2 md:text-sm text-xs  text-neutral-accent-light'>
                         <li>
-                            <Link href='/support'>Support</Link>
+                            <Link href='/'>Support</Link>
                         </li>
                         <li>
-                            <Link href='/api'>API</Link>
+                            <Link href='/'>API</Link>
                         </li>
                         <li>
-                            <Link href='/feature-requests'>Feature Requests</Link>
+                            <Link href='/'>Feature Requests</Link>
                         </li>
                         <li>
-                            <Link href='/trust-safety'>Trust & Safety</Link>
+                            <Link href='/'>Trust & Safety</Link>
                         </li>
                         <li>
-                            <Link href='/sitemap'>Sitemap</Link>
+                            <Link href='/'>Sitemap</Link>
                         </li>
                     </ul>
                 </div>

@@ -10,38 +10,38 @@ export const quickAccesses: QuickAccess[] = [
     {
         id: 0,
         label: 'Free to earn',
-        url: '/free-to-earn',
+        url: '/',
         icon: CashbackIcon
     },
     {
         id: 1,
         label: 'Ranking',
-        url: '/ranking',
+        url: '/',
         icon: SportRaceIcon
     },
     {
         id: 2,
         label: 'Video-NFT',
-        url: '/video-nft',
+        url: '/',
         icon: LiveIcon
     },
     {
         id: 3,
         label: 'How to buy',
-        url: '/how-to-buy',
+        url: '/',
         icon: RacingIcon
     },
     {
         id: 4,
         label: 'New NFTS',
-        url: '/new-NFTS',
+        url: '/',
         icon: LiveCasinoIcon,
         subLabel: 'New'
     },
     {
         id: 5,
         label: 'Roadmaps',
-        url: '/roadmaps',
+        url: '/',
         icon: MiniGameIcon
     }
 ]

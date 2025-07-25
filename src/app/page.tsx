@@ -15,7 +15,13 @@ import JsonLd from '@components/shared/JsonLd';
 export default function Page() {
   return (
     <main className='flex flex-col overflow-y-auto min-h-[calc(100vh-64px)]'>
-      <Slider slides={slides} isNavigation={false} autoplay={true} className='h-[180px] sm:h-[245px] md:h-[345px] lg:h-[450px]' />
+      <Slider
+        slides={slides}
+        isNavigation={false}
+        autoplay={true}
+        imageClassName='aspect-[3/1] h-full! 2xl:h-auto!'
+        className='h-[180px] sm:h-[245px] md:h-[345px] lg:h-[450px]'
+      />
       <div className='w-full bg-neutral-normal'>
         <div className='quick-access flex flex-row justify-between py-[1em] md:py-[1.5em] px-[1.25em] md:px-0 max-w-[1128px] mx-auto gap-2'>
           {quickAccesses &&
@@ -26,6 +32,7 @@ export default function Page() {
       </div>
       <div className='flex flex-col gap-10 md:gap-20 py-10 md:py-20 px-5 md:px-0 max-w-[1128px] w-screen mx-auto'>
         <Carousel
+          id='nft-collections'
           label='New NFT Collections'
           slides={nftCollections}
           breakpoints={{
@@ -49,17 +56,17 @@ export default function Page() {
               slidesPerGroup: 1,
               spaceBetween: 16,
             },
-            1280: {
-              slidesPerView: 6,
-              slidesPerGroup: 1,
-              spaceBetween: 16,
-            },
           }}
           className='h-[140px] md:h-[245px] lg:h-[245px] rounded-2xl'
         />
         <div className='grid grid-cols-9 gap-6'>
           <div className='col-span-9 md:col-span-5'>
-            <Carousel label='NFT Drops Calendar' slides={nftDrops} className='h-[170px] md:h-[240px] lg:h-[240px] rounded-2xl' />
+            <Carousel
+              id='nft-drops'
+              label='NFT Drops Calendar'
+              slides={nftDrops}
+              className='h-[170px] md:h-[240px] lg:h-[240px] rounded-2xl'
+            />
           </div>
           <div className='col-span-9 md:col-span-4'>
             <div className='grid grid-cols-2 gap-6'>
@@ -68,7 +75,7 @@ export default function Page() {
                   image={nftHot}
                   alt='NFT Hot'
                   label='Hot NFT'
-                  url='/nft-hot'
+                  url='/'
                   className='h-[170px] md:h-[240px] lg:h-[240px] rounded-2xl'
                 />
               </div>
@@ -77,7 +84,7 @@ export default function Page() {
                   image={nftPromotion}
                   alt='Promotion'
                   label='Promotion'
-                  url='/promotion'
+                  url='/'
                   className='h-[170px] md:h-[240px] lg:h-[240px] rounded-2xl'
                 />
               </div>

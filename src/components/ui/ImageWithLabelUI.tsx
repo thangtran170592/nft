@@ -20,7 +20,7 @@ export default function ImageWithLabelUI({ image, alt, label, url, className }: 
                     {label}
                 </h2>
             )}
-            <div className={mergeClass('relative w-full', className && `${className}`)}>
+            <div className={mergeClass('relative w-full', className)}>
                 <Image
                     priority
                     src={image}

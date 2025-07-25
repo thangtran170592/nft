@@ -11,8 +11,10 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { mergeClass } from '@lib/utils/mergeClass';
 import { AutoplayOptions, SwiperOptions } from 'swiper/types';
+import Icon from '@components/shared/Icon';
 
-type CarouselPros = {
+type CarouselProps = {
+  id: string;
   label?: string;
   slides: Slide[];
   isNavigation?: boolean;
@@ -26,6 +28,7 @@ type CarouselPros = {
 };
 
 export default function Carousel({
+  id,
   label,
   slides,
   isNavigation = true,
@@ -59,18 +62,32 @@ export default function Carousel({
     },
   },
   className,
-}: CarouselPros) {
+}: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
-    <div className='carousel-container flex flex-col gap-2 w-full mx-auto'>
-      {label && (
-        <h2 className='font-barlow text-primary-normal font-black uppercase italic text-[1.5em]/[1.5] md:text-[2em]/[1.5]'>
-          {label}
-        </h2>
-      )}
+    <div className='carousel-container flex flex-col gap-2 w-full mx-auto relative'>
+      <div className='flex flex-row gap-2 items-end justify-between'>
+        {label && (
+          <h2 className='font-barlow text-primary-normal font-black uppercase italic text-[1.5em]/[1.5] md:text-[2em]/[1.5]'>{label}</h2>
+        )}
+        {isNavigation && (
+          <div className='flex flex-row gap-2'>
+            <button className={`swiper-button-control swiper-button-prev-${id} hover:cursor-pointer`}>
+              <Icon name='arrow' width={8} height={15} />
+            </button>
+            <button className={`swiper-button-control swiper-button-next-${id} hover:cursor-pointer`}>
+              <Icon name='arrow' width={8} height={15} className='transform rotate-180' />
+            </button>
+          </div>
+        )}
+      </div>
       <Swiper
         modules={[Autoplay, Navigation]}
-        navigation={isNavigation}
+        navigation={{
+          prevEl: `.swiper-button-prev-${id}`,
+          nextEl: `.swiper-button-next-${id}`,
+        }}
         autoplay={
           autoplay
             ? {
@@ -85,7 +102,7 @@ export default function Carousel({
       >
         {slides?.map((item, idx) => (
           <SwiperSlide key={idx} onClick={() => setActiveIndex(idx)} className='carousel-slide'>
-            <div className={mergeClass('relative w-full', activeIndex === idx && 'active', className && `${className}`)}>
+            <div className={mergeClass('relative w-full', activeIndex === idx && 'active', className)}>
               <Image
                 src={item.image}
                 alt={`NFT ${item.title}`}

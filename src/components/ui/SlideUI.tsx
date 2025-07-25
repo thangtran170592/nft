@@ -17,6 +17,7 @@ type SlideUIProps = {
   isLoop?: boolean;
   autoplay?: boolean | AutoplayOptions;
   className?: string;
+  imageClassName?: string;
 };
 
 export default function SlideUI({
@@ -27,6 +28,7 @@ export default function SlideUI({
   slidesPerView = 1,
   slidesPerGroup = 1,
   className,
+  imageClassName,
 }: SlideUIProps) {
   return (
     <div className='slide-container w-full mx-auto'>
@@ -52,14 +54,14 @@ export default function SlideUI({
       >
         {slides?.map((item, idx) => (
           <SwiperSlide key={idx} className='carousel-slide'>
-            <div className={mergeClass('relative w-full', className && `${className}`)}>
+            <div className={mergeClass('relative w-full overflow-hidden', className)}>
               <Image
                 src={item.image}
                 alt={`NFT ${item.title}`}
                 fill
                 priority={idx === 0}
                 sizes='(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 25vw'
-                className='object-cover'
+                className={mergeClass('object-cover', imageClassName)}
               />
             </div>
           </SwiperSlide>
